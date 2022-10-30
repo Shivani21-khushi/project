@@ -1,0 +1,335 @@
+*{ 
+    margin: 0;
+    padding: 0; 
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 4.5vw;
+   }
+img{
+    margin-top: -1%;
+}
+.nav-links ul{
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    margin-left: -135%;
+    left: 0%;
+    right: -0.8%;
+    top: -4%;
+    bottom: -20%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+.nav-links a{
+    text-decoration: solid;
+    color: black;
+}
+
+.Name{
+    width: 360px;
+    height: 129px;
+    margin-left: 4.4%;
+    left: calc(50% - 360px/2 - 380px);
+    top: 360px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 97.2%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+.info{
+    width: 580px;
+    height: 111px;
+    margin-top: -5%;
+    margin-left: 45%;
+    left: calc(50% - 580px/2 + 206px);
+    top: 424px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 117%;
+    letter-spacing: -0.03em;
+    color: #606060;
+}
+
+.arrow-logo{
+    margin-top: 35%;
+    width: 33.61px;
+    height: 38.04px;
+    left: calc(50% - 33.61px/2 - 543.16px);
+    top: 605.18px;
+}
+
+.first h3{
+    margin-left: 5%;
+    margin-top: 13%;
+    right: 70.87%;  
+    top: 0%;
+    bottom: 95.98%;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+.first h4{
+    margin-left: 5%;
+    margin-top: 15px;
+    left: 0%;
+    right: 68.21%;
+    top: 9.3%;
+    bottom: 54.97%;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 400;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+.p2{
+    margin-left: 5%;
+    margin-top: 35px;
+    right: 71.84%;
+    top: 30.66%;
+    bottom: 61.95%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;   
+    color: #606060;
+}
+
+.first img{
+    height: 364.6781311035156px;
+    margin-left: 58%;
+    margin-top: -9%;
+    width: 640px;
+    left: 480px;
+    top: 0px;
+    border-radius: 0px;
+}
+
+#link{
+    margin-top: -1%;    
+    bottom: 22.41%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    text-decoration-line: underline;
+    color: #181717;
+}
+
+.dashed{
+    width: 95%;
+    margin: auto;
+    margin-top: 2%;
+    left: 0.71%;
+    right: -0.26%;
+    top: 100%;
+    bottom: 0%;
+    border: 1px solid#181717;
+}
+
+.second {
+    left: 0%;
+    right: 70.87%;
+    top: 0%;
+    bottom: 95.98%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+#two{
+    height: 19px;
+    margin-left: 5%;
+    margin-top: 3%;
+    right: 70.87%;  
+    top: 0%;
+    bottom: 95.98%;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+#p3{
+    margin-left: 5%;
+    margin-top: 1%;
+    right: 68.21%;
+    top: 9.3%;
+    bottom: 54.97%;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 400;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;}
+
+#link2{
+    margin-left: 5%;
+    margin-top: -1%;
+    left: 0%;
+    right: 70.87%;
+    top: 73.36%;
+    bottom: 22.41%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    text-decoration-line: underline;
+    color: #181717;
+}
+
+.second img{ 
+    margin-left: 58%;
+    margin-top: -6%;
+    height: 364.6781311035156px;
+    width: 640px;
+    left: 480px;
+    top: 0px;
+    border-radius: 0px;
+}
+
+.third{
+    left: 0%;
+    right: 70.87%;
+    top: 0%;
+    bottom: 95.98%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+#three{
+    margin-left: 5%;
+    margin-top: 3%;
+    right: 70.87%;
+    bottom: 95.98%;
+    font-family: 'Inter';
+    font-style: normal;
+    /* font-weight: 500; */
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;    
+    color: #181717;   
+}
+
+#p4{
+    margin-left: 5%;
+    margin-top: 1.9%;
+    right: 68.21%;
+    top: 9.3%;
+    bottom: 54.97%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 121.5%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
+
+#link3{
+   margin-left: 4.8%;
+   right: 70.87%;
+   top: 73.36%;
+   bottom: 22.41%;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 121.5%;
+   letter-spacing: -0.03em;
+   text-decoration-line: underline;
+   color: #606060;
+}
+
+.third img{
+    height: 400.6781311035156px;
+    margin-left: 58%;
+    margin-top: -5.8%;
+    width: 640px;
+    left: 480px;
+    top: 0px;
+    border-radius: 0px;
+}
+
+.footer{
+    padding: 8%;
+    /* display: flex; */
+    justify-content: space-between;
+    color: #2429AF;
+}
+
+.namely{
+    margin-left: -4%;
+    margin-top: -2%;
+    left: 0%;
+    right: 75.82%;
+    top: 0%;
+    bottom: 0%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px; 
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    color: #2429AF;
+    height: 20px;
+    width: 270.82373046875px;
+} 
+
+.ref ul {
+    margin-top: -1%;
+    margin-left: 65%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    left: 70.59%;
+    right: 20.64%;
+    top: 0%;
+    bottom: 0%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    color: #181717;
+}
