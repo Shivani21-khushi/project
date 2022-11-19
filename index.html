@@ -1,79 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Filter Cards</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-   <nav class="head">
-    <div class="nav-logo">
-        <img src="./site-logo.jpg" alt="site-logo" class="logo">
-    </div>
-    <div class="nav-links">
-        <ul>
-            <li><a href="">Work</a></li>
-            <li><a href="./me.html">About</a></li>
-            <li><a href="">Playground</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </div>
-   </nav>
-       <div class="Name">
-          <h5>Hello, I'm<br>shivani palandurkar</h5>
-           <div class="arrow-logo"><img src="./arrow.jpg" alt="arrow"></div>
-        </div>
-      <div class="info">
-         <p class="p1">A senior-year design student who tryng<br>to specialize in 3d modeling & texturing</p>
-       </div>
-     
-    <div class="project1">
-        <div class="first">
-            <h3>01/WestWorld</h3>
-            <h4>Goblin concept digital sculpture with<br>human-like skin. Learned a lot of quick tips<br>and look development.</h4>
-            <p class="p2">Sculpted in ZBrush, Retopologized and UVs done<br>in Maya, Textured in Mari, Rendered using Arnold.</p>
-            <img src="C:\Users\Vrushabh\Desktop\abcd\horti_Landscaping_flower arrangement_clip_image002.jpg" alt="">
-             
-            <h3 id="link">More shots from this project ↗</h3>
-        </div>
-    </div>
-    <hr class="dashed">
+    <div class="container">
+        <p class="para">Filter ui cards via their profession.</p>
+        <select id="list" onchange="getSelectedValue()" title="selection">
+          <option value="profession">profession</option>
+          <option value="developer">developer</option>
+          <option value="admin">admin</option>
+        </select>
+        <div id="item"></div>
+        <button id="btn" onclick="filterEmployee()">Filter</button>
+      </div>
     
-    <div class="projecttwo">
-        <div class="second">
-            <h3 id="two">02/Initiative</h3>
-            <h4 id="p3">Subsurface weight, specular roughness,<br>diffuse maps generated with the procedure<br>and manual techniques.</h4>  
-            <img src="C:\Users\Vrushabh\Desktop\abcd\pexels-heather-bozman-1058771.jpg" alt="">
-            <p id="link2">See case study →</p>
-        </div>
-    </div> 
-
-    <hr class="dashed">
-   
-    <div class="projecthree">
-        <div class="third">
-            <h3 id="three">03/Mastermind</h>
-            <h4 id="p4">Experimental creature modeling for school<br>project.</h4>  
-            <img src="C:\Users\Vrushabh\Desktop\abcd\arrangement.jpg" alt="">
-            <p id="link3">Project WIP</p>
-        </div>
-    </div> 
-    
-    <hr class="dashed">
-    
-    <div class="footer">
-    <div class="namely">
-    <h3>shivani palandurkar -2022</h3>
-    </div>
-    <div class="ref">
-        <ul>
-            <li>Artstation</li>
-            <li>Linkedin</li>
-            <li>Twitter</li>
-        </ul>
-    </div>
-</div>
+      <script src="script.js"></script>    
 </body>
 </html>
