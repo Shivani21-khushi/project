@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter Cards</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <p class="para">Filter ui cards via their profession.</p>
-        <select id="list" onchange="getSelectedValue()" title="selection">
-          <option value="Profession">Profession</option>
-          <option value="Developer">Developer</option>
-          <option value="Admin">Admin</option>
-        </select>
-        <div id="item"></div>
-        <button id="btn" onclick="filterEmployee()">Filter</button>
-      </div>
+    <h2>
+        <!--Window confirm()-->
+    </h2>
+    <label>Email</label>
     
-      <script src="script.js"></script>    
+    <br>
+    <input type="text"  id="email" placeholder="Example@email.com"><br>
+    <div disabled id="messageemail"></div>
+    <br>
+    <label>Password</label><br>
+    
+    <input type="password" id="pwd" placeholder="Your password" ><br>
+    
+   <div disabled id="message"></div>
+    <div disabled id="messagepassword"></div>
+    <br>
+
+    <button id="btn" onclick="geek()">Submit</button>
+    <script src="script.js"></script>
 </body>
 </html>

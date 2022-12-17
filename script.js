@@ -1,42 +1,82 @@
-let selectedValue = document.getElementById("list").value;
-function getSelectedValue() {
-  selectedValue = document.getElementById("list").value;
+let emailInput=document.getElementById('email');
+let passwordInput=document.getElementById('pwd');
+let button=document.getElementById('btn');
+let messageDiv=document.getElementById('message');
+emailInput.addEventListener("change",validate);
+passwordInput.addEventListener("change",validate)
+
+let messagemaildiv=document.getElementById('messageemail');
+let messagepassworddiv=document.getElementById('messagepassword');
+emailInput.onchange=validate();
+passwordInput.onchange=validate();
+function geek()
+{
+   if(confirm()==true)
+   {
+       alert("successfull signup!")
+   }
+   if(confirm()==false)
+   {
+       emailInput.value="";
+       passwordInput.value=""
+       messageDiv.innerText=""
+   }
 }
 
-const employeeArr = [
-  { Id: 1, Name : "John", Age : "18", Profession : "Developer" },
-  { Id: 2, Name : "Jack", Age : "20", Profession : "Developer" },
-  { Id: 3, Name : "Karen", Age : "19", Profession : "Admin" },
-];
+function validate()
+{
 
-filterEmployee = () => {
-  var filteredArray = employeeArr.filter(filteredEmployee);
-  var text = "";
-  filteredArray.forEach(myFun);
+    let email=emailInput.value;
 
-  function myFun(user) {
-    text +=
-       user.Id +
-      "." + " "+
-      "Name"+":"+user.Name +
-       "  "+ 
-     "Profession"+":"+user.Profession +" "+
-      "Age"+":"+user.Age +
-      "<br>";
-  }
-  document.getElementById("item").innerHTML = text;
-  };
+    let password=passwordInput.value;
 
-filteredEmployee = (employee) => {
-  employee.Age = Number(employee.Age);
-  if (employee.Name == "John") {
-    employee.Age = 18;
-  }
-  console.log(typeof employee.Age);
+    if(email !="" && email.includes("@") && email.length>3 && email.includes(".") && password != "" && password.length>8) {
+       
+       
+        if(password != "" && password.length>8)
+       {
+            messageDiv.innerText="All good to go!";
+            messageDiv.style.color="green";
 
-  if (selectedValue == "Profession") {
-    return true;
-  }
-  return employee.Profession == selectedValue;
-};
-filterEmployee();
+        messagemaildiv.innerText="";
+        messagepassworddiv.innerText="";
+       
+       
+
+        }
+        else{
+            messageDiv.innerText="";
+             messagemaildiv.innerText="Make sure email is more than 3 characters and has @ and a.";
+             messagemaildiv.style.color="red";
+             messagepassworddiv.innerText=" Make sure password is more than 8 characters.";
+             messagepassworddiv.style.color="red";
+     
+             console.log("Email or password is invalid");
+         }
+     
+    }
+      
+        else(password != "" && password.length>8)
+      {
+    if(email !="" && email.includes("@") && email.length>3 && email.includes(".") && password != "" && password.length>8){
+            messageDiv.innerText="All good to go!";
+            messageDiv.style.color="green";
+
+        messagemaildiv.innerText="";
+        messagepassworddiv.innerText="";
+      
+       
+
+        }
+        else{
+            messageDiv.innerText="";
+             messagemaildiv.innerText="Make sure email is more than 3 characters and has @ and a.";
+             messagemaildiv.style.color="red";
+             messagepassworddiv.innerText=" Make sure password is more than 8 characters.";
+             messagepassworddiv.style.color="red";
+     
+             console.log("Email or password is invalid");
+         }
+     
+    }
+}
