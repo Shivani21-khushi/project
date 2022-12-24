@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    font-family: 'Inter';
+    font-size: 24px;
+    background-color: black;
+    color: #FFFFFF;
+}
+
+.Major {
+    margin: 60px 35px;
+}
+
+.Input {
+    display: inline-block;
+    justify-content: space-around;
+}
+
+#dropdown {
+    width: 196px;
+    height: 58px;
+    margin: 40px 0px;
+}
+
+.btn {
+    width: 226px;
+    height: 58px;
+    color: black;
+    background-color: #FFFFFF;
+    margin: 30px 0px;
+    margin-bottom: 70px;
+}
+
+#user {
+    margin-top: 35px;
+    display:inline-block;
+}
