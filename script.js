@@ -1,82 +1,79 @@
-let emailInput=document.getElementById('email');
-let passwordInput=document.getElementById('pwd');
-let button=document.getElementById('btn');
-let messageDiv=document.getElementById('message');
-emailInput.addEventListener("change",validate);
-passwordInput.addEventListener("change",validate)
+let dropdown = document.getElementById("dropdown");
+let result = document.getElementById("result");
+let filterbtn = document.getElementById("filterBtn");
 
-let messagemaildiv=document.getElementById('messageemail');
-let messagepassworddiv=document.getElementById('messagepassword');
-emailInput.onchange=validate();
-passwordInput.onchange=validate();
-function geek()
-{
-   if(confirm()==true)
-   {
-       alert("successfull signup!")
-   }
-   if(confirm()==false)
-   {
-       emailInput.value="";
-       passwordInput.value=""
-       messageDiv.innerText=""
-   }
+
+let arr = [
+    { id: 1, name: "john", age: "18", profession: "developer" },
+    { id: 2, name: "jack", age: "20", profession: "developer" },
+    { id: 3, name: "Karen", age: "19", profession: "admin" }
+]
+
+// result.append(arr.jack);
+
+// arr.forEach((item)=>{
+//     let div = document.createElement("div");
+//     div.innerHTML = item;
+//     result.append(div);
+// });
+    
+
+
+function filterbyprofession() {
+    result.innerHTML = "";
+    let dropdownValue = dropdown.value;
+
+    if (dropdownValue == "profession") {
+        alert("Select a profession before clicking the button.");
+        return;
+    }
+
+
+    arr.forEach((item) => {
+        if (item.profession === dropdownValue) {
+            let div = document.createElement("div");
+            div.setAttribute("class");
+            div.style.borderStyle="solid";
+            div.style.margin="15px 0px";
+            div.style.borderRadius="10px";
+            div.innerText = item.id + ". Name: " + item.name + "  Profession: " + item.profession + "  Age: " + item.age;
+            result.append(div);
+        }
+    })
+    console.log(arr);
 }
 
-function validate()
-{
+filterbtn.addEventListener("click", filterbyprofession);
 
-    let email=emailInput.value;
+let addName = document.getElementById("name");
+let addProfession = document.getElementById("profession");
+let addAge = document.getElementById("age");
 
-    let password=passwordInput.value;
+let aadBtn = document.getElementById("adduser");
 
-    if(email !="" && email.includes("@") && email.length>3 && email.includes(".") && password != "" && password.length>8) {
-       
-       
-        if(password != "" && password.length>8)
-       {
-            messageDiv.innerText="All good to go!";
-            messageDiv.style.color="green";
 
-        messagemaildiv.innerText="";
-        messagepassworddiv.innerText="";
-       
-       
+function addUser() {
+    let Uname = addName.value;
+    let age = addAge.value;
+    let prf = addProfession.value;
 
-        }
-        else{
-            messageDiv.innerText="";
-             messagemaildiv.innerText="Make sure email is more than 3 characters and has @ and a.";
-             messagemaildiv.style.color="red";
-             messagepassworddiv.innerText=" Make sure password is more than 8 characters.";
-             messagepassworddiv.style.color="red";
-     
-             console.log("Email or password is invalid");
-         }
-     
+    let x = arr.length;
+    ++x;
+
+    let brr = { id: x, name: `${Uname}`, age: `${age}`, profession: `${prf}` }
+    if(Uname !== "" && age !== "" && prf !== ""){
+        arr.push(brr);
     }
-      
-        else(password != "" && password.length>8)
-      {
-    if(email !="" && email.includes("@") && email.length>3 && email.includes(".") && password != "" && password.length>8){
-            messageDiv.innerText="All good to go!";
-            messageDiv.style.color="green";
-
-        messagemaildiv.innerText="";
-        messagepassworddiv.innerText="";
-      
-       
-
-        }
-        else{
-            messageDiv.innerText="";
-             messagemaildiv.innerText="Make sure email is more than 3 characters and has @ and a.";
-             messagemaildiv.style.color="red";
-             messagepassworddiv.innerText=" Make sure password is more than 8 characters.";
-             messagepassworddiv.style.color="red";
-     
-             console.log("Email or password is invalid");
-         }
-     
+    else{
+        alert("fill complete detail.")
     }
+
+    console.log(arr);
+
+    addName.value = "";
+    addAge.value = "";
+    addProfession.value = "";
+
 }
+
+aadBtn.addEventListener("click", addUser);

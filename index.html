@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Employee project</title>
 </head>
-<body>
-    <h2>
-        <!--Window confirm()-->
-    </h2>
-    <label>Email</label>
-    
-    <br>
-    <input type="text"  id="email" placeholder="Example@email.com"><br>
-    <div disabled id="messageemail"></div>
-    <br>
-    <label>Password</label><br>
-    
-    <input type="password" id="pwd" placeholder="Your password" ><br>
-    
-   <div disabled id="message"></div>
-    <div disabled id="messagepassword"></div>
-    <br>
 
-    <button id="btn" onclick="geek()">Submit</button>
+<body>
+    
+    <div class="box">
+        Filter ui cards via their profession<br />
+        <select name="dropdown" id="dropdown">
+            <option disabled selected value="profession">Profession</option>
+            <option value="developer">Developer</option>
+            <option value="admin">Admin</option>
+        </select> <br>
+
+        <div id="result"></div>
+
+        <button id="filterBtn" class="btn">Filter</button><br />
+
+        Add a new user<br />
+
+        <div id="newuser">
+
+            <div class="userInput">Enter Name<br />
+                <input type="text" id="name">
+            </div>
+
+            <div class="userInput">Enter Profession<br />
+                <input type="text" id="profession">
+            </div>
+
+            <div class="userInput">Enter Age<br />
+                <input type="text" id="age">
+            </div>
+
+        </div>
+        <button id="adduser" class="btn">Add User</button>
+    </div>
+
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
