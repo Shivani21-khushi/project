@@ -1,37 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-* {
-    font-family: 'Inter';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
+    line-height: 29px;
+}
+
+#headRec{
     background-color: black;
-    color: #FFFFFF;
+    color: white;
+    height: 76px;
+    padding: 24px 21px;
+
+   
 }
 
-.Major {
-    margin: 60px 35px;
+body{
+    background-color:#CDCDCD;
+    /* position: absolute;
+    width: 100%; */
+    /* height: 100%; */
 }
 
-.Input {
-    display: inline-block;
+#search{
+    margin:29px;
+    margin-right: 5px;
+    width: 80%;
+    height: 65px;
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    padding: 29px;
+}
+
+.button{
+    background-color: black;
+    color:white;
+    width: 15%;
+    height: 65px;
+}
+
+.container{
+    display: flex;
+    margin: 29px;
     justify-content: space-around;
 }
 
-#dropdown {
-    width: 196px;
-    height: 58px;
-    margin: 40px 0px;
+table,th,tr,td{
+    background-color: #D9D9D9;
+    border: 2px solid #000000;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 10px;
 }
 
-.btn {
-    width: 226px;
-    height: 58px;
-    color: black;
-    background-color: #FFFFFF;
-    margin: 30px 0px;
-    margin-bottom: 70px;
+.nameBlock{
+    display: flex;
+    align-items: center;
 }
 
-#user {
-    margin-top: 35px;
-    display:inline-block;
+.nameBlock > span{
+    padding-left: 10px;
 }

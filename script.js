@@ -1,69 +1,191 @@
-let dropdown = document.getElementById("dropdown");
-let result = document.getElementById("result");
-let filterbtn = document.getElementById("filterBtn");
+import userdata from './data.json' assert { type: 'json' };
+console.log(userdata);
 
 
-let arr = [
-    { id: 1, name: "john", age: "18", profession: "developer" },
-    { id: 2, name: "jack", age: "20", profession: "developer" },
-    { id: 3, name: "Karen", age: "19", profession: "admin" }
-]
 
-function filterbyprofession() {
-    result.innerHTML = "";
-    let dropdownValue = dropdown.value;
+var dataTable = document.getElementById("dataTab");
+//  buttons
+var sortAZ = document.getElementById("sortAtoZ")
+var sortZA = document.getElementById("sortZtoA")
+var sortMarks = document.getElementById("sortByMarks")
+var sortPassing = document.getElementById("sortByPassing")
+var sortGender = document.getElementById("sortByGender")
+var sortClass = document.getElementById("sortByClass")
 
-    if (dropdownValue == "profession") {
-        alert("Select a profession before clicking the button.");
-        return;
+var searchBox = document.getElementById("search")
+var searchButton = document.getElementById("searchBtn")
+
+
+function insert(haha) {  haha.map((e) => {
+    
+    var row = dataTable.insertRow(-1);
+    
+    let ID = row.insertCell(0)
+    let Name = row.insertCell(1)
+    let Gender = row.insertCell(2)
+    let Class = row.insertCell(3)
+    let Marks = row.insertCell(4)
+    let Passing = row.insertCell(5)
+    let Email = row.insertCell(6)
+   
+    ID.innerHTML = e.id
+    
+    var image = document.createElement("img")
+    image.src = e.img_src
+    image.style.border = "1px solid black"
+    image.style.borderRadius = "50%"
+    image.style.width = "35px"
+    Name.append(image)
+    
+    var span = document.createElement("span")
+    span.style.paddingLeft = "10px"
+    span.innerText = e.first_name + " " + e.last_name
+    Name.append(span)
+    
+    Name.className = "nameBlock"
+    
+    Gender.innerText = e.gender
+    Class.innerText = e.class
+    Marks.innerText = e.marks
+    Email.innerText = e.email
+    if (e.passing == true) {
+        Passing.innerText = "Pass"
     }
-    arr.forEach((item) => {
-        if (item.profession === dropdownValue) {
-            let divElement = document.createElement("div");
+    else {
+        Passing.innerText = "Fail"
+    }
+})
+}
+insert(userdata)
 
-            divElement.style.borderStyle = "solid";
-            divElement.style.margin ="20px 10px";
-            divElement.style.borderRadius ="5px";
 
-            
-            
-            divElement.innerText = item.id + ". Name: " + item.name + " Profession: " + item.profession + " Age: " + item.age;
-            result.append(divElement);
+searchButton.onclick = function () {
+   
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    
+    let value = searchBox.value.toLowerCase()
+
+    let filter1 = userdata.filter(e => e.first_name.toLowerCase().includes(value) || e.last_name.toLowerCase().includes(value) || e.email.toLowerCase().includes(value))
+    insert(filter1)
+}
+
+
+function fliterPassing() {
+    
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    let filter2 = userdata.filter(e => e.passing == true)
+    insert(filter2)
+}
+sortPassing.addEventListener('click', fliterPassing)
+
+
+function fliterGender() {
+    
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    let filter3a = userdata.filter(e => e.gender === "Female")
+    let filter3b = userdata.filter(e => e.gender === "Male")
+    insert(filter3a)
+    
+    var row = dataTable.insertRow(-1);
+    var ID = row.insertCell(0)
+    var Name = row.insertCell(1)
+    var Gender = row.insertCell(2)
+    var Class = row.insertCell(3)
+    var Marks = row.insertCell(4)
+    var Passing = row.insertCell(5)
+    var Email = row.insertCell(6)
+
+    ID.innerHTML = " "
+    Name.innerHTML = " "
+    Gender.innerHTML = " "
+    Class.innerHTML = " "
+    Marks.innerHTML = " "
+    Passing.innerHTML = " "
+    Email.innerHTML = " "
+
+    var row = dataTable.insertRow(-1);
+    var ID = row.insertCell(0)
+    var Name = row.insertCell(1)
+    var Gender = row.insertCell(2)
+    var Class = row.insertCell(3)
+    var Marks = row.insertCell(4)
+    var Passing = row.insertCell(5)
+    var Email = row.insertCell(6)
+
+    ID.innerHTML = "ID"
+    Name.innerHTML = "Name"
+    Gender.innerHTML = "Gender"
+    Class.innerHTML = "Class"
+    Marks.innerHTML = "Marks"
+    Passing.innerHTML = "Passing"
+    Email.innerHTML = "Email"
+
+    insert(filter3b)
+}
+sortGender.addEventListener('click', fliterGender)
+
+
+function fliterClass() {
+    
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    let filter4 = userdata.sort((p, q) => {
+        return p.class - q.class;
+    });
+    insert(filter4)
+}
+sortClass.addEventListener('click', fliterClass)
+
+function fliterMarks() {
+    
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    let filter5 = userdata.sort((p, q) => {
+        return p.marks - q.marks;
+    });
+    insert(filter5)
+}
+sortMarks.addEventListener('click', fliterMarks)
+
+function fliterAZ() {
+  
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
+    }
+    let filter6 = userdata.sort(function (a, b) {
+        if (a.first_name < b.first_name) {
+          return -1;
         }
-    })
-    console.log(arr);
+      });
+    insert(filter6)
 }
-
-filterbtn.addEventListener("click", filterbyprofession);
-
-let addName = document.getElementById("name");
-let addProfession = document.getElementById("profession");
-let addAge = document.getElementById("age");
-
-let aadBtn = document.getElementById("adduser");
+sortAZ.addEventListener('click', fliterAZ)
 
 
-function addUser() {
-    let kname = addName.value;
-    let age = addAge.value;
-    let prof = addProfession.value;
-
-    let x = arr.length;
-    ++x;
-
-    let crr = { id: x, name: `${kname}`, age: `${age}`, profession: `${prof}` }
-    if(kname !== "" && age !== "" && prof !== ""){
-        arr.push(crr);
+function fliterZA() {
+     var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
+        dataTable.deleteRow(i);
     }
-    else{
-        alert("fill complete detail.")
-    }
-
-    console.log(arr);
-
-    addName.value = "";
-    addAge.value = "";
-    addProfession.value = "";
+    let filter7 = userdata.sort(function (a, b) {
+        if (a.first_name > b.first_name) {
+          return -1;
+        }
+      });
+    insert(filter7)
 }
-
-aadBtn.addEventListener("click", addUser);
+sortZA.addEventListener('click', fliterZA)

@@ -5,37 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    
+    <title>F2 Module Test</title>
     <link rel="stylesheet" href="style.css">
-    <title>employee</title>
 </head>
 
 <body>
-    <div class="Major">
-        Filter ui cards via their profession<br />
-        <select name="dropdown" id="dropdown">
-            <option disabled selected value="profession">Profession</option>
-            <option value="developer">Developer</option>
-            <option value="admin">Admin</option>
-        </select> <br>
-        <div id="result"></div>
-        <button id="filterBtn" class="btn">Filter</button><br />
-        Add a new user<br />
-        <div id="user">
-            <div class="Input">Enter Name<br />
-                <input type="text" id="name">
-            </div>
-            <div class="Input">Enter Profession<br />
-                <input type="text" id="profession">
-            </div>
-            <div class="Input">Enter Age<br />
-                <input type="text" id="age">
-            </div>
+    
+    <header>
+        <div id="headRec">
+            Student Portal
         </div>
-        <button id="adduser" class="btn">Add User</button>
-    </div>
-    <script src="script.js"></script>
+    </header>
+
+    <main>
+        
+        <div>
+            <input type="text" id="search" placeholder="Search">
+            <button type="submit" class="button" id="searchBtn">Search</button>
+        </div>
+        
+        <div class="container">
+            <button type="submit" class="button" id="sortAtoZ">Sort A->Z</button>
+            <button type="submit" class="button" id="sortZtoA">Sort Z->A</button>
+            <button type="submit" class="button" id="sortByMarks">Sort By Marks</button>
+            <button type="submit" class="button" id="sortByPassing">Sort By Passing</button>
+            <button type="submit" class="button" id="sortByClass">Sort By Class</button>
+            <button type="submit" class="button" id="sortByGender">Sort By Gender</button>
+        </div>
+        
+        <div>
+            <table style="width:95%; margin:45px;" id="dataTab" border="2">
+                <tr>
+                    <th >ID</th>
+                    <th >Name</th>
+                    <th >Gender</th>
+                    <th >Class</th>
+                    <th >Marks</th>
+                    <th >Passing</th>
+                    <th >Email</th>
+                </tr>
+            </table>
+        </div>
+
+    </main>
+
+    <script type="module" src="script.js"></script>
 </body>
+
 </html>
