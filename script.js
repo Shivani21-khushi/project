@@ -1,191 +1,84 @@
-import userdata from './data.json' assert { type: 'json' };
-console.log(userdata);
+let namedata = document.getElementById("item-name"); 
+let date = document.getElementById("deadline");      
+let priority = document.getElementById("priority");  
+let btn = document.getElementById("addItem");        
+let array = [];                                       
+let completearray = [];                              
 
+var d1 = new Date();
+console.log(d1);
 
-
-var dataTable = document.getElementById("dataTab");
-//  buttons
-var sortAZ = document.getElementById("sortAtoZ")
-var sortZA = document.getElementById("sortZtoA")
-var sortMarks = document.getElementById("sortByMarks")
-var sortPassing = document.getElementById("sortByPassing")
-var sortGender = document.getElementById("sortByGender")
-var sortClass = document.getElementById("sortByClass")
-
-var searchBox = document.getElementById("search")
-var searchButton = document.getElementById("searchBtn")
-
-
-function insert(haha) {  haha.map((e) => {
-    
-    var row = dataTable.insertRow(-1);
-    
-    let ID = row.insertCell(0)
-    let Name = row.insertCell(1)
-    let Gender = row.insertCell(2)
-    let Class = row.insertCell(3)
-    let Marks = row.insertCell(4)
-    let Passing = row.insertCell(5)
-    let Email = row.insertCell(6)
-   
-    ID.innerHTML = e.id
-    
-    var image = document.createElement("img")
-    image.src = e.img_src
-    image.style.border = "1px solid black"
-    image.style.borderRadius = "50%"
-    image.style.width = "35px"
-    Name.append(image)
-    
-    var span = document.createElement("span")
-    span.style.paddingLeft = "10px"
-    span.innerText = e.first_name + " " + e.last_name
-    Name.append(span)
-    
-    Name.className = "nameBlock"
-    
-    Gender.innerText = e.gender
-    Class.innerText = e.class
-    Marks.innerText = e.marks
-    Email.innerText = e.email
-    if (e.passing == true) {
-        Passing.innerText = "Pass"
-    }
-    else {
-        Passing.innerText = "Fail"
-    }
-})
-}
-insert(userdata)
-
-
-searchButton.onclick = function () {
-   
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    
-    let value = searchBox.value.toLowerCase()
-
-    let filter1 = userdata.filter(e => e.first_name.toLowerCase().includes(value) || e.last_name.toLowerCase().includes(value) || e.email.toLowerCase().includes(value))
-    insert(filter1)
+const datesAreOnSameDay = (first, second) => first.getFullYear() === second.getFullYear() && first.getMonth() === second.getMonth() && first.getDate() === second.getDate();
+let objStr = localStorage.getItem("data");
+if (objStr != null) {
+  array = JSON.parse(objStr);
+  console.log(array);
 }
 
+btn.onclick = () => {
 
-function fliterPassing() {
-    
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter2 = userdata.filter(e => e.passing == true)
-    insert(filter2)
+let date2 = new Date(date.value);
+console.log(datesAreOnSameDay(d1, date2));
+
+  let nameVal = namedata.value;
+  let dateVal = date.value;
+  let priorityVal = priority.value;
+
+  if (nameVal && dateVal && priorityVal) {
+    document.getElementById("error").innerHTML = "";
+    let todoData = {
+      ItemName: nameVal,
+      Deadline: dateVal,
+      Priority: priorityVal,
+    };
+    array.push(todoData);
+    saveData(array);
+    console.log(array);
+  } else {
+    console.log("error");
+    document.getElementById("error").innerHTML = "Fill The Inputs";
+  }
+  namedata.value = "";
+  date.value = "";
+  priority.value = "";
+};
+
+function saveData(array) {
+  let str = JSON.stringify(array);
+  localStorage.setItem("data", str);
+  showData();
 }
-sortPassing.addEventListener('click', fliterPassing)
 
+function showData() {
+  let tableData = "";
+  document.getElementById("t-body").innerHTML = "";
+  document.getElementById("t-future").innerHTML = "";
 
-function fliterGender() {
-    
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter3a = userdata.filter(e => e.gender === "Female")
-    let filter3b = userdata.filter(e => e.gender === "Male")
-    insert(filter3a)
-    
-    var row = dataTable.insertRow(-1);
-    var ID = row.insertCell(0)
-    var Name = row.insertCell(1)
-    var Gender = row.insertCell(2)
-    var Class = row.insertCell(3)
-    var Marks = row.insertCell(4)
-    var Passing = row.insertCell(5)
-    var Email = row.insertCell(6)
+  array.forEach((e, i) => {
+    tableData += `
+        <tr>
+            <td>${i + 1}. ${e.ItemName}</td>
+            <td>${e.Deadline}</td>
+            <td>${e.Priority}</td>
+            <td><button onclick="completeToDo(${i})"><i class='fa fa-check-square-o' style='font-size:18px;color:white'></i></button>
+            <button onclick="deleteData(${i})"><i class="fa fa-trash-o" style='font-size:18px;color:white'></i></button></td>
+        </tr>
+        `;
+    document.getElementById("t-body").innerHTML = tableData;
+  });
 
-    ID.innerHTML = " "
-    Name.innerHTML = " "
-    Gender.innerHTML = " "
-    Class.innerHTML = " "
-    Marks.innerHTML = " "
-    Passing.innerHTML = " "
-    Email.innerHTML = " "
-
-    var row = dataTable.insertRow(-1);
-    var ID = row.insertCell(0)
-    var Name = row.insertCell(1)
-    var Gender = row.insertCell(2)
-    var Class = row.insertCell(3)
-    var Marks = row.insertCell(4)
-    var Passing = row.insertCell(5)
-    var Email = row.insertCell(6)
-
-    ID.innerHTML = "ID"
-    Name.innerHTML = "Name"
-    Gender.innerHTML = "Gender"
-    Class.innerHTML = "Class"
-    Marks.innerHTML = "Marks"
-    Passing.innerHTML = "Passing"
-    Email.innerHTML = "Email"
-
-    insert(filter3b)
+  let checkData = "";
+  document.getElementById("t-complete").innerHTML = "";
+  completearray.forEach((e, i) => {
+    checkData += `
+        <tr>
+            <td>${i + 1}. ${e.ItemName}</td>
+            <td>${e.Deadline}</td>
+            <td>${e.Priority}</td>
+            <td><button onclick="deleteCompleteData(${i})"><i class="fa fa-trash-o" style='font-size:18px;color:white'></i></button></td>
+        </tr>
+        `;
+    document.getElementById("t-complete").innerHTML = checkData;
+  });
 }
-sortGender.addEventListener('click', fliterGender)
-
-
-function fliterClass() {
-    
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter4 = userdata.sort((p, q) => {
-        return p.class - q.class;
-    });
-    insert(filter4)
-}
-sortClass.addEventListener('click', fliterClass)
-
-function fliterMarks() {
-    
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter5 = userdata.sort((p, q) => {
-        return p.marks - q.marks;
-    });
-    insert(filter5)
-}
-sortMarks.addEventListener('click', fliterMarks)
-
-function fliterAZ() {
-  
-    var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter6 = userdata.sort(function (a, b) {
-        if (a.first_name < b.first_name) {
-          return -1;
-        }
-      });
-    insert(filter6)
-}
-sortAZ.addEventListener('click', fliterAZ)
-
-
-function fliterZA() {
-     var totalRows = dataTable.rows.length;
-    for (var i = totalRows - 1; i > 0; i--) {
-        dataTable.deleteRow(i);
-    }
-    let filter7 = userdata.sort(function (a, b) {
-        if (a.first_name > b.first_name) {
-          return -1;
-        }
-      });
-    insert(filter7)
-}
-sortZA.addEventListener('click', fliterZA)
+showData();

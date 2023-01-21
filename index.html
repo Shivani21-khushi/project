@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   
+    <title>To-Do List</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
-    <title>F2 Module Test</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    
-    <header>
-        <div id="headRec">
-            Student Portal
-        </div>
-    </header>
-
+    <script src="script.js" defer></script>
+  </head>
+  <body>
     <main>
-        
-        <div>
-            <input type="text" id="search" placeholder="Search">
-            <button type="submit" class="button" id="searchBtn">Search</button>
-        </div>
-        
-        <div class="container">
-            <button type="submit" class="button" id="sortAtoZ">Sort A->Z</button>
-            <button type="submit" class="button" id="sortZtoA">Sort Z->A</button>
-            <button type="submit" class="button" id="sortByMarks">Sort By Marks</button>
-            <button type="submit" class="button" id="sortByPassing">Sort By Passing</button>
-            <button type="submit" class="button" id="sortByClass">Sort By Class</button>
-            <button type="submit" class="button" id="sortByGender">Sort By Gender</button>
-        </div>
-        
-        <div>
-            <table style="width:95%; margin:45px;" id="dataTab" border="2">
-                <tr>
-                    <th >ID</th>
-                    <th >Name</th>
-                    <th >Gender</th>
-                    <th >Class</th>
-                    <th >Marks</th>
-                    <th >Passing</th>
-                    <th >Email</th>
-                </tr>
-            </table>
-        </div>
+      <h1>To-Do List</h1>
 
+      <input type="text" name="item-name" id="item-name" placeholder="Item Name" />
+      <input type="date" name="deadline" id="deadline" placeholder="Deadline" />
+
+      <select name="priority" id="priority">
+        <option value="">Priority</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <button id="addItem">Add Item</button>
     </main>
+    <h3 id="error"></h3>
 
-    <script type="module" src="script.js"></script>
-</body>
+    <h2>Today's TodoList</h2>
+    <div class="flex">
+      <table id="today">
+        <tbody id="t-body"></tbody>
+      </table>
+    </div>
 
+    <h2>Future TodoList</h2>
+    <div class="flex">
+      <table id="future">
+        <tbody id="t-future"></tbody>
+      </table>
+    </div>
+
+    <h2>Completed TodoList</h2>
+    <div class="flex">
+      <table id="complete">
+        <tbody id="t-complete"></tbody>
+      </table>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+  </body>
 </html>
