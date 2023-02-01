@@ -1,84 +1,105 @@
-let namedata = document.getElementById("item-name"); 
-let date = document.getElementById("deadline");      
-let priority = document.getElementById("priority");  
-let btn = document.getElementById("addItem");        
-let array = [];                                       
-let completearray = [];                              
+var timeZone = document.getElementById("timeZone");
+var lati = document.getElementById("lati");
+var std = document.getElementById("std");
+var stdSec = document.getElementById("stdSec");
+var dst = document.getElementById("dst");
+var dstSec = document.getElementById("dstSec");
+var coun = document.getElementById("coun");
+var Pcode = document.getElementById("Pcode");
+var city = document.getElementById("city");
+var long = document.getElementById("long");
 
-var d1 = new Date();
-console.log(d1);
 
-const datesAreOnSameDay = (first, second) => first.getFullYear() === second.getFullYear() && first.getMonth() === second.getMonth() && first.getDate() === second.getDate();
-let objStr = localStorage.getItem("data");
-if (objStr != null) {
-  array = JSON.parse(objStr);
-  console.log(array);
+var UtimeZone = document.getElementById("UtimeZone");
+var Ulati = document.getElementById("Ulati");
+var Ustd = document.getElementById("Ustd");
+var UstdSec = document.getElementById("UstdSec");
+var Udst = document.getElementById("Udst");
+var UdstSec = document.getElementById("UdstSec");
+var Ucoun = document.getElementById("Ucoun");
+var Upcode = document.getElementById("Upcode");
+var Ucity = document.getElementById("Ucity");
+var Ulong = document.getElementById("Ulong");
+var input = document.getElementsByTagName("input")[0];
+var button = document.getElementsByTagName("button")[0];
+
+
+async function getLocation() {
+   navigator.geolocation.getCurrentPosition((success) => {
+    let { latitude, longitude } = success.coords
+    getTimeZone(latitude,longitude);
+   })
 }
 
-btn.onclick = () => {
+document.addEventListener("DOMContentLoaded", getLocation);
 
-let date2 = new Date(date.value);
-console.log(datesAreOnSameDay(d1, date2));
+async function getTimeZone(lat, lon) {
+    const request = await fetch(
+        `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&format=json&apiKey=39256ca7e90a4061bbfdae20dd127ad2`
+    );
+    const response = await request.json();
+    const timeZoneData = response;
+    locationData(timeZoneData);
+}
 
-  let nameVal = namedata.value;
-  let dateVal = date.value;
-  let priorityVal = priority.value;
+async function getUpdatedTimeZone(input) {
+    const request = await fetch(
+      `https://api.geoapify.com/v1/geocode/search?text=${input}&format=json&apiKey=39256ca7e90a4061bbfdae20dd127ad2`
+    );
+    const response = await request.json();
+    const timeZoneData = response;
+    getSearchData(timeZoneData);
+}
 
-  if (nameVal && dateVal && priorityVal) {
-    document.getElementById("error").innerHTML = "";
-    let todoData = {
-      ItemName: nameVal,
-      Deadline: dateVal,
-      Priority: priorityVal,
-    };
-    array.push(todoData);
-    saveData(array);
-    console.log(array);
+function getAddressTimezone() {
+  const address = input.value; 
+  if (address == "") {
+    document.getElementById("errorMsg").style.display = "block";
+    document.getElementById("errorMsg").textContent =
+      "Please Enter a valid Address!";
+    document.getElementById("heading").style.display = "none";
+    document.getElementById("newComponent").style.display = "none";
   } else {
-    console.log("error");
-    document.getElementById("error").innerHTML = "Fill The Inputs";
+    getUpdatedTimeZone(address);
+    document.getElementById("errorMsg").style.display = "none";
+    document.getElementById("heading").style.display = "block";
+    document.getElementById("newComponent").style.display = "block";
   }
-  namedata.value = "";
-  date.value = "";
-  priority.value = "";
-};
-
-function saveData(array) {
-  let str = JSON.stringify(array);
-  localStorage.setItem("data", str);
-  showData();
 }
 
-function showData() {
-  let tableData = "";
-  document.getElementById("t-body").innerHTML = "";
-  document.getElementById("t-future").innerHTML = "";
+button.addEventListener("click", getAddressTimezone);
 
-  array.forEach((e, i) => {
-    tableData += `
-        <tr>
-            <td>${i + 1}. ${e.ItemName}</td>
-            <td>${e.Deadline}</td>
-            <td>${e.Priority}</td>
-            <td><button onclick="completeToDo(${i})"><i class='fa fa-check-square-o' style='font-size:18px;color:white'></i></button>
-            <button onclick="deleteData(${i})"><i class="fa fa-trash-o" style='font-size:18px;color:white'></i></button></td>
-        </tr>
-        `;
-    document.getElementById("t-body").innerHTML = tableData;
-  });
 
-  let checkData = "";
-  document.getElementById("t-complete").innerHTML = "";
-  completearray.forEach((e, i) => {
-    checkData += `
-        <tr>
-            <td>${i + 1}. ${e.ItemName}</td>
-            <td>${e.Deadline}</td>
-            <td>${e.Priority}</td>
-            <td><button onclick="deleteCompleteData(${i})"><i class="fa fa-trash-o" style='font-size:18px;color:white'></i></button></td>
-        </tr>
-        `;
-    document.getElementById("t-complete").innerHTML = checkData;
-  });
+function displayError() {
+  document.getElementById("heading").style.display = "none";
+  document.getElementById("newComponent").style.display = "none";
+  document.getElementById("errorMsg").style.display = "block";
+  document.getElementById("errorMsg").textContent =
+    "Timezone could not be found!";
 }
-showData();
+
+function locationData(data) {
+  timeZone.textContent = data.results[0].timezone.name;
+  lati.textContent = data.results[0].lat;
+  std.textContent = data.results[0].timezone.offset_STD;
+  stdSec.textContent = data.results[0].timezone.offset_STD_seconds;
+  dst.textContent = data.results[0].timezone.offset_DST;
+  dstSec.textContent = data.results[0].timezone.offset_DST_seconds;
+  coun.textContent = data.results[0].country;
+  Pcode.textContent = data.results[0].postcode;
+  city.textContent = data.results[0].city;
+  long.textContent = data.results[0].lon;
+}
+
+function getSearchData(data) {
+  UtimeZone.textContent = data.results[0].timezone.name;
+  Ulati.textContent = data.results[0].lat;
+  Ustd.textContent = data.results[0].timezone.offset_STD;
+  UstdSec.textContent = data.results[0].timezone.offset_STD_seconds;
+  Udst.textContent = data.results[0].timezone.offset_DST;
+  UdstSec.textContent = data.results[0].timezone.offset_DST_seconds;
+  Ucoun.textContent = data.results[0].country;
+  Upcode.textContent = data.results[0].postcode;
+  Ucity.textContent = data.results[0].city;
+  Ulong.textContent = data.results[0].lon;
+}

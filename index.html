@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+    <section id="section1">
+        <h1> TimeZone API </h1>
+        <h1 style="margin-top: 0;"> Your Current Time Zone </h1>
+        <div class="component">
+            <div>Name of the Time Zone: <span id="timeZone"> </span> </div>
+            <div>Lat: <span id="lati"> </span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Long: <span id="long"> </span> </div>
+            <div>Offset STD: <span id="std"> </span> </div>
+            <div>Offset STD Seconds: <span id="stdSec"> </span> </div>
+            <div>Offset DST: <span id="dst"> </span> </div>
+            <div>Offset DST Seconds: <span id="dstSec"> </span> </div>
+            <div>Country: <span id="coun"> </span> </div>
+            <div>Postcode: <span id="Pcode"> </span> </div>
+            <div>City: <span id="city"> </span> </div>
+        </div>
+    </section>
+  
+    <section id="section2">
+        <h1>Enter Address</h1>
+        <input type="text" placeholder="Address">
+        <button type="submit">Submit</button>
+        <div id="errorMsg" style="display: none;"></div>
+        <h1 id="heading" style="display: none;">Your Result </h1>
+        <div class="component component1" id="newComponent" style="display: none;">
+            <div>Name of the Time Zone: <span id="UtimeZone"> </span> </div>
+            <div>Lat: <span id="Ulati"> </span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Long: <span id="Ulong"> </span> </div>
+            <div>Offset STD: <span id="Ustd"> </span> </div>
+            <div>Offset STD Seconds: <span id="UstdSec"> </span> </div>
+            <div>Offset DST: <span id="Udst"> </span> </div>
+            <div>Offset DST Seconds: <span id="UdstSec"> </span> </div>
+            <div>Country: <span id="Ucoun"> </span> </div>
+            <div>Postcode: <span id="Upcode"> </span> </div>
+            <div>City: <span id="Ucity"> </span> </div>
+        </div>
+    </section>
    
-    <title>To-Do List</title>
+    <script src="script.js"></script>
+</body>
 
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <main>
-      <h1>To-Do List</h1>
-
-      <input type="text" name="item-name" id="item-name" placeholder="Item Name" />
-      <input type="date" name="deadline" id="deadline" placeholder="Deadline" />
-
-      <select name="priority" id="priority">
-        <option value="">Priority</option>
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
-      </select>
-      <button id="addItem">Add Item</button>
-    </main>
-    <h3 id="error"></h3>
-
-    <h2>Today's TodoList</h2>
-    <div class="flex">
-      <table id="today">
-        <tbody id="t-body"></tbody>
-      </table>
-    </div>
-
-    <h2>Future TodoList</h2>
-    <div class="flex">
-      <table id="future">
-        <tbody id="t-future"></tbody>
-      </table>
-    </div>
-
-    <h2>Completed TodoList</h2>
-    <div class="flex">
-      <table id="complete">
-        <tbody id="t-complete"></tbody>
-      </table>
-    </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
-    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
-  </body>
 </html>

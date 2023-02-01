@@ -1,87 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Inter", sans-serif;
-}
-
-main {
-  text-align: center;
-  margin-top: 20px;
-}
-
-main > h1 {
-  font-weight: 700;
-  font-size: 44px;
-  margin-bottom: 13px;
-}
-
-#item-name {
-  width: 33.68vw;
-  height: 4.81vh;
-  padding: 5px;
-  margin: 6px;
-}
-
-#deadline {
-  width: 23.09vw;
-  height: 4.81vh;
-  padding: 5px;
-  margin: 6px;
-}
-
-#priority {
-  width: 22.4vw;
-  height: 4.81vh;
-  padding: 5px;
-  margin: 6px;
-}
-
-main > button {
-  width: 14.7vw;
-  height: 4.81vh;
-  margin: 6px;
-  padding: 5px;
-  background: black;
-  color: white;
-}
-
-h2 {
-  margin: 18px 30px;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-}
-
-#error {
-  color: rgb(21, 4, 85);
-  margin: 18px 30px;
-}
-
-table {
-  width: 100%;
-  margin: 30px;
-  border-collapse: collapse;
-}
-tr {
-  background-color: black;
-  color: white;
-  height: 4.81vh;
-  border-bottom: 20px solid;
-}
-td {
-  padding: 12px;
-}
-td:nth-child(4) {
-  text-align: center;
-}
-td > button {
-  background: transparent;
-  margin-left: 20px;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+  }
+  
+  #section1 {
+    height: 90vh;
+    width: 100%;
+  }
+  
+  #section2 {
+    position: absolute;
+    height: 130vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+  }
+  
+  h1 {
+    margin: 8vh 2vw 4vh 2vw;
+    font-weight: 700;
+    font-size: 36px;
+  }
+  
+  .component {
+    position: absolute;
+    border: 2px solid black;
+    width: 96%;
+    height: 65vh;
+    left: 2%;
+    padding: 20px;
+    font-size: 20px;
+  }
+  
+  .component div {
+    margin-bottom: 20px;
+  }
+  
+  .component1 {
+    border: 2px solid white;
+  }
+  
+  input {
+    margin: 0 2vw;
+    display: block;
+    margin-bottom: 4vh;
+    width: 95%;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    height: 3rem;
+    padding-left: 1rem;
+    font-size: larger;
+  }
+  
+  button {
+    margin: 0 2vw;
+    width: 10%;
+    height: 2.7rem;
+    margin-bottom: 4vh;
+  }
+  
+  #errorMsg {
+    margin: 0 2vw;
+    font-size: larger;
+    color: red;
+  }
